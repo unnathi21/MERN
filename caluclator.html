@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .calculator {
+      background-color: black;
+      border-radius: 20px;
+      width: 300px;
+      padding: 20px;
+      box-shadow: 0 0 10px grey;
+    }
+    .display {
+      color: white;
+      text-align: right;
+      padding: 10px;
+      font-size: 2.5rem;
+      min-height: 70px;
+    }
+    .box {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+    }
+    .box div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      font-size: 1.5rem;
+      border-radius: 40%;
+    }
+    .box > div:hover {
+        background-color: red;
+        cursor: pointer;
+    }
+
+    .gray {
+      background-color: #a5a5a5;
+      color: black;
+    }
+
+    .orange {
+      background-color: #f1a33c;
+      color: white;
+    }
+
+    .dark {
+      background-color: #333;
+      color: white;
+    }
+
+    /* Style special buttons */
+    .zero {
+      text-align: center;
+      border-radius: 10px;
+      justify-content: flex-start;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">
+    </div>
+    <div class="box">
+      <div class="gray">AC</div>
+      <div class="gray">+/-</div>
+      <div class="gray">%</div>
+      <div class="orange">÷</div>
+
+      <div class="dark">7</div>
+      <div class="dark">8</div>
+      <div class="dark">9</div>
+      <div class="orange">×</div>
+
+      <div class="dark">4</div>
+      <div class="dark">5</div>
+      <div class="dark">6</div>
+      <div class="orange">−</div>
+
+      <div class="dark">1</div>
+      <div class="dark">2</div>
+      <div class="dark">3</div>
+      <div class="orange">+</div>
+
+      <div class="dark"> </div>
+      <div class="dark">0</div>
+      <div class="dark">.</div>
+      <div class="orange">=</div>
+    </div>
+  </div>
+</body>
+</html>

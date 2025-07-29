@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div p {
+    color: red;
+}
+div > p {
+    color: blue;
+}
+div ~ p, span {
+    color: green;
+}
+div + p {
+    color: purple;
+}
+div + h1 {
+    color: orange;
+}
+    </style>
+
+    <h1 style="color: blueviolet; padding: 60px; background-color: blue;">welcome to msd</h1>
+    <p id="one" style="color: aquamarine;"> hello </p>
+    <div>
+        <p>
+            <ol>
+                <li>
+                    <p>list number 1</p>
+                </li>
+            </ol>
+        </p>
+    </div>
+    <span>
+        <ol>
+            <li>
+                <p>list number 2</p>
+            </li>
+        </ol>
+    </span>
+    <p>this id inside div</p>
+    <span>this is below div</span>
+</body>
+</html>

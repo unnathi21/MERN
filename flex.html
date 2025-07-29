@@ -1,0 +1,158 @@
+
+<html>
+<he<!DOCTYPE html>
+ad>
+    <title>Login Page</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f1f1f1; }
+        .container { text-align: center; width: 400px; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); }
+        h1 { margin-bottom: 20px; }
+        input { padding: 10px; width: 100%; margin: 10px 0; border-radius: 5px; border: 1px solid #ddd; }
+        .btn { padding: 10px; margin: 10px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; }
+        .btn-login { background-color: #4CAF50; color: white; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div class="container" id="login-container">
+        <h1>Login</h1>
+        <div class="error" id="error-message"></div>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <input type="text" id="name" placeholder="Enter your name">
+        <button class="btn btn-login" onclick="login()">Login</button>
+    </div>
+
+    <!-- Quiz Page -->
+    <div class="container" id="quiz-container" style="display:none;">
+        <h1>Welcome, <span id="user-name"></span>!</h1>
+        <div class="timer" id="timer">Time: 120</div>
+        <h2 id="question"></h2>
+
+        <div id="answer-container">
+            <label class="answer-option"><input type="radio" name="answer" id="answer-0" value="0"><span id="answer-text-0"></span></label>
+            <label class="answer-option"><input type="radio" name="answer" id="answer-1" value="1"><span id="answer-text-1"></span></label>
+            <label class="answer-option"><input type="radio" name="answer" id="answer-2" value="2"><span id="answer-text-2"></span></label>
+            <label class="answer-option"><input type="radio" name="answer" id="answer-3" value="3"><span id="answer-text-3"></span></label>
+        </div>
+
+        <button class="btn btn-prev" id="prev-btn" onclick="previousQuestion()">Previous</button>
+        <button class="btn btn-next" onclick="nextQuestion()">Next</button>
+        <button class="btn btn-clear" onclick="clearResponse()">Clear Response</button>
+        <button class="btn btn-submit" onclick="submitQuiz()">Submit Quiz</button>
+
+        <div id="result" style="display:none;">
+            <h2>Your Score: <span id="score"></span> / 20</h2>
+        </div>
+    </div>
+
+    <script>
+        let loggedIn = false;
+        const questions = [
+            { question: "1. What is the capital of France?", answers: ["Berlin", "Madrid", "Paris", "Rome"], correct: 2 },
+            { question: "2. What is 2 + 2?", answers: ["3", "4", "5", "6"], correct: 1 },
+            { question: "3. Which planet is known as the Red Planet?", answers: ["Earth", "Mars", "Jupiter", "Venus"], correct: 1 },
+            { question: "4. Who wrote 'Hamlet'?", answers: ["Shakespeare", "Dickens", "Hemingway", "Austen"], correct: 0 },
+            { question: "5. What is the largest ocean?", answers: ["Atlantic", "Indian", "Arctic", "Pacific"], correct: 3 },
+            { question: "6. How many continents are there?", answers: ["5", "6", "7", "8"], correct: 2 },
+            { question: "7. What is the square root of 64?", answers: ["6", "7", "8", "9"], correct: 2 },
+            { question: "8. Who discovered gravity?", answers: ["Newton", "Einstein", "Galileo", "Tesla"], correct: 0 },
+            { question: "9. What is the chemical symbol for water?", answers: ["CO2", "H2O", "O2", "NaCl"], correct: 1 },
+            { question: "10. What is the longest river?", answers: ["Amazon", "Nile", "Yangtze", "Mississippi"], correct: 1 },
+            { question: "11. How many sides does a hexagon have?", answers: ["5", "6", "7", "8"], correct: 1 },
+            { question: "12. What is the capital of Japan?", answers: ["Seoul", "Tokyo", "Beijing", "Bangkok"], correct: 1 },
+            { question: "13. What gas do plants absorb?", answers: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], correct: 1 },
+            { question: "14. Who painted the Mona Lisa?", answers: ["Van Gogh", "Da Vinci", "Picasso", "Rembrandt"], correct: 1 },
+            { question: "15. What is the largest mammal?", answers: ["Elephant", "Blue Whale", "Shark", "Giraffe"], correct: 1 },
+            { question: "16. How many legs does a spider have?", answers: ["6", "8", "10", "12"], correct: 1 },
+            { question: "17. What is the freezing point of water?", answers: ["0", "32", "-10", "100"], correct: 0 },
+            { question: "18. Who developed relativity?", answers: ["Newton", "Einstein", "Galileo", "Tesla"], correct: 1 },
+            { question: "19. What is the fastest land animal?", answers: ["Lion", "Cheetah", "Horse", "Tiger"], correct: 1 },
+            { question: "20. What is India's national sport?", answers: ["Cricket", "Hockey", "Football", "Kabaddi"], correct: 1 }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answers = Array(20).fill(null);
+        let timeLeft = 120;
+
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const name = document.getElementById("name").value;
+
+            if (username === "user" && password === "password" && name !== "") {
+                loggedIn = true;
+                document.getElementById("user-name").innerText = name;  // Display the user's name
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("quiz-container").style.display = "block";
+                startQuiz();
+            } else {
+                document.getElementById("error-message").innerText = "Invalid credentials or name not provided. Please try again.";
+            }
+        }
+
+        function startQuiz() {
+            let timer = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    document.getElementById("timer").innerText = "Time: " + timeLeft;
+                } else {
+                    clearInterval(timer);
+                    submitQuiz();
+                }
+            }, 1000);
+
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            document.getElementById("question").innerText = q.question;
+            for (let i = 0; i < 4; i++) {
+                document.getElementById("answer-text-" + i).innerText = q.answers[i];
+                document.getElementById("answer-" + i).checked = answers[currentQuestion] === i;
+            }
+            document.getElementById("prev-btn").style.display = currentQuestion === 0 ? "none" : "inline-block";
+        }
+
+        function nextQuestion() {
+            saveAnswer();
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                submitQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            saveAnswer();
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        }
+
+        function saveAnswer() {
+            let selectedOption = document.querySelector('input[name="answer"]:checked');
+            answers[currentQuestion] = selectedOption ? parseInt(selectedOption.value) : null;
+        }
+
+        function clearResponse() {
+            document.querySelectorAll('input[name="answer"]').forEach(radio => radio.checked = false);
+            answers[currentQuestion] = null;
+        }
+
+        function submitQuiz() {
+            clearInterval(timer);
+            score = answers.filter((ans, i) => ans === questions[i].correct).length;
+            document.getElementById("score").innerText = score;
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+</body>
+</html>

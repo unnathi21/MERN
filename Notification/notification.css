@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 40px;
+    background-color: rgb(234, 228, 228);
+    
+}
+
+h1 {
+    font-weight: bold;
+    color: rgb(139, 0, 0);
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+#Notifications {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+}
+
+#Notifications > div{
+    background-color: whitesmoke;
+    padding: 20px;
+    border: 1px solid whitesmoke;
+    border-radius: 8px;
+    line-height: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+#Notifications > div:hover{
+    background-color: darkred;
+    cursor: pointer;
+}

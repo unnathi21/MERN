@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recharge Banner Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f8fa;
+      margin: 0;
+      padding: 30px;
+    }
+    .recharge-section {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      padding: 24px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .recharge-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 36px;
+    }
+    .recharge-item {
+      text-align: center;
+    }
+    .recharge-item img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 8px;
+    }
+    .recharge-item span {
+      display: block;
+      font-size: 15px;
+      color: #212121;
+    }
+    .cashback-banner {
+      display: flex;
+      align-items: center;
+      background: #1bb8fd;
+      border-radius: 64px;
+      padding: 22px 34px;
+      color: #fff;
+    }
+    .cashback-banner .icon {
+      background: #fff;
+      color: #1bb8fd;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+      margin-right: 20px;
+    }
+    .cashback-banner .details {
+      flex: 1;
+      font-size: 22px;
+      font-weight: 500;
+    }
+    .cashback-banner .details .highlight {
+      font-weight: bold;
+    }
+    .cashback-banner .details .promo {
+      font-size: 18px;
+      font-weight: 400;
+    }
+    .cashback-banner button {
+      background: #fff;
+      color: #1bb8fd;
+      border: 2px solid #fff;
+      border-radius: 32px;
+      padding: 12px 28px;
+      font-size: 18px;
+      font-weight: 600;
+      margin-left: 20px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cashback-banner button:hover {
+      background: #1bb8fd;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="recharge-section">
+    <h2>Recharges</h2>
+    <div class="recharge-options">
+      <div class="recharge-item">
+        <img src="https://img.icons8.com/color/48/000000/smartphone.png"/>
+        <span>Mobile<br>Recharge</span>
+      </div>
+      <div class="recharge-item">
+        <img src="https://img.icons8.com/color/48/000000/car-battery.png"/>
+        <span>FASTag<br>Recharge</span>
+      </div>
+      <div class="recharge-item">
+        <img src="https://img.icons8.com/color/48/000000/satellite-dish.png"/>
+        <span>DTH<br>Recharge</span>
+      </div>
+      <div class="recharge-item">
+        <img src="https://img.icons8.com/color/48/000000/view-details.png"/>
+        <span>View All<br>Products</span>
+      </div>
+    </div>
+    <div class="cashback-banner">
+      <div class="icon">CASH<br>BACK</div>
+      <div class="details">
+        Do <span class="highlight">Mobile Recharge</span> and Win ₹100 cashback.<br>
+        <span class="promo">Promo: TAKEITALL</span>
+      </div>
+      <button>Recharge Now &rarr;</button>
+    </div>
+  </div>
+</body>
+</html>

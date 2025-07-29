@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: white;
+        }
+        #container {
+            display:grid;
+            grid-template-columns: repeat(13,1fr);
+            grid-template-rows: repeat(5,1fr);
+            gap:15px;
+            box-shadow: rgba(50,50,93,0.25)0px 13px;
+            padding: 40px;
+
+        }
+        .container {
+      background-color: rgba(50,50,93,0.25);
+      border-radius: 20px;
+     
+      box-shadow: 0 0 10px grey;
+    }
+    .display {
+      color: white;
+      text-align: right;
+      padding: 10px;
+      font-size: 2.5rem;
+      min-height: 70px;
+    }
+    .box {
+      display: grid;
+      grid-template-columns: repeat(13, 1fr);
+      grid-gap: 10px;
+    }
+    .box div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      font-size: 1.5rem;
+      border-radius: 40%;
+    }
+    .box > div:hover {
+        background-color: red;
+        cursor: pointer;
+    }
+    .dark {
+      background-color: #333;
+      color: white;
+      padding: 2px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display">
+        </div>
+        <div class="box">
+            <div class="dark">~</div>
+            <div class="dark">1</div>
+            <div class="dark">2</div>
+            <div class="dark">3</div>
+            <div class="dark">4</div>
+            <div class="dark">5</div>
+            <div class="dark">6</div>
+            <div class="dark">7</div>
+            <div class="dark">8</div>
+            <div class="dark">9</div>
+            <div class="dark">0</div>
+            <div class="dark">-</div>
+            <div class="dark">=</div>
+
+            <div class="dark">tab</div>
+            <div class="dark">Q</div>
+            <div class="dark">W</div>
+            <div class="dark">E</div>
+            <div class="dark">R</div>
+            <div class="dark">T</div>
+            <div class="dark">Y</div>
+            <div class="dark">U</div>
+            <div class="dark">I</div>
+            <div class="dark">O</div>
+            <div class="dark">P</div>
+            <div class="dark">[</div>
+            <div class="dark">]</div>
+
+            <div class="dark">cap lock</div>
+            <div class="dark">A</div>
+            <div class="dark">S</div>
+            <div class="dark">D</div>
+            <div class="dark">F</div>
+            <div class="dark">T</div>
+            <div class="dark">Y</div>
+            <div class="dark">U</div>
+            <div class="dark">I</div>
+            <div class="dark">O</div>
+            <div class="dark">P</div>
+            <div class="dark">[</div>
+            <div class="dark">]</div>
+
+
+
+        </div>
+    </div>
+</body>
+</html>
