@@ -1,0 +1,104 @@
+#relative and absolute
+
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>CSS Positions</title>
+    <style>
+      div:nth-child(1) {
+        background-color: teal;
+      }
+      div:nth-child(2) {
+        background-color: pink;
+      }
+      div:nth-child(3) {
+        background-color: brown;
+      }
+
+      div {
+        height: 100px;
+        width: 100px;
+        padding: 20px;
+        font-size: 20px;
+      }
+      #teal {
+        background-color: teal;
+        position: absolute;
+        left: 200px;
+      }
+      #pink {
+        background-color: pink;
+      }
+      #brown {
+        background-color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Change position values to static/relative/absolute</h2>
+    <div id="teal">Box-1</div>
+    <div id="pink">Box-2</div>
+    <div id="brown">Box-3</div>
+  </body>
+</html>
+
+
+
+# fixed
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <style>
+      .fixed {
+        position: fixed;
+        bottom: 20px;
+        right: 0;
+
+        font-size: 30px;
+        background:teal;
+        padding:40px
+      }
+      body {
+        height: 1500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed">?</div>
+  </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .sticky {
+        
+        position: sticky;
+        top: 20px;
+        padding: 5px;
+        background-color: #cae8ca;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sticky">I am sticky!</div>
+
+    <div style="padding-bottom: 2000px">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, assumenda
+      voluptas dicta amet ipsam, neque molestias eaque suscipit mollitia
+      architecto voluptatibus maxime veniam ducimus consectetur non porro eos
+      vel omnis? Culpa, doloribus quas! Error dolor labore sit, unde earum velit
+      deleniti maiores ex totam dignissimos obcaecati minima numquam eius a
+      harum fugit veritatis possimus, animi similique natus! Accusamus, neque
+      voluptates! Voluptas corrupti exercitationem error qui tenetur asperiores
+      eveniet facilis atque laborum porro soluta similique, beatae reiciendis
+      rem possimus voluptatibus fuga id voluptate aperiam, iusto maxime cum
+      dignissimos distinctio eaque!
+    </div>
+  </body>
+</html>
