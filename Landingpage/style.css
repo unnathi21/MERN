@@ -1,0 +1,312 @@
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+
+/* Fixed Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.location-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.location-info:hover .location-text {
+    color: darkred;
+}
+
+.location-info svg {
+    fill: #fc8019;
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+}
+
+.location-text {
+    font-weight: 600;
+    font-size: 17px;
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.location-text span {
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+    display: block;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.profile-icon:hover {
+    transform: scale(1.1);
+    background-color: darkred;
+}
+
+.profile-icon:hover svg {
+    fill: white;
+}
+
+.profile-icon svg {
+    fill: #555;
+    width: 24px;
+    height: 24px;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 85px;
+    padding-bottom: 75px;
+}
+
+/* Search bar section */
+.search-bar-container {
+    padding: 0 20px;
+    margin-bottom: 25px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 16px;
+    color: #555;
+}
+
+.search-bar input::placeholder {
+    color: #999;
+}
+
+.search-bar svg {
+    fill: #777;
+    width: 22px;
+    height: 22px;
+    margin-right: 15px;
+}
+
+/* Categories section */
+.categories-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0 10px 15px 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.categories-container::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    display: inline-block;
+    text-align: center;
+    margin: 0 10px;
+    vertical-align: top;
+    width: 80px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.category-item:hover {
+    transform: translateY(-5px);
+    color: darkred;
+}
+
+.category-icon {
+    width: 100px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid darkred;
+}
+.category-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.category-text {
+    font-size: 13px;
+    color: #555;
+    white-space: normal;
+    font-weight: 500;
+}
+
+/* Restaurant List section */
+.restaurant-list {
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 20px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.restaurant-list h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 25px;
+}
+
+.restaurant-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid darkred;
+}
+
+.restaurant-card img {
+    width: 100%;
+    height:500px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.card-details {
+    padding: 15px;
+}
+
+.restaurant-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #1a1a1a;
+}
+
+.restaurant-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #777;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+}
+
+.rating {
+    background-color: #48c479;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.rating svg {
+    fill: #fff;
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+}
+
+/* Fixed Bottom Navigation Bar */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #999;
+    font-size: 12px;
+    font-weight: 500;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    color: darkred;
+}
+
+.nav-item.active {
+    color: #fc8019;
+}
+
+.nav-item svg {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 4px;
+    fill: currentColor;
+}
